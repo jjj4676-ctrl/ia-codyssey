@@ -1,0 +1,12 @@
+# 로그 파일 제외
+logs/*.log
+
+# logs 폴더 자체는 유지
+!logs/.gitkeep
+
+# 운영체제 임시 파일
+.DS_Store
+Thumbs.db
+
+# 에디터/환경 임시 파일
+.vscode/
