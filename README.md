@@ -161,6 +161,10 @@ ls
 '''powershell
 git init
 git branch -M main
+git remote add origin https://github.com/jjj4676-ctrl/ia-codyssey
+git push -u origin main
+
+Github 저장소에 README.md와 기본 폴더 구조를 업로드했다.
 
 ---
 
