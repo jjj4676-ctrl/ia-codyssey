@@ -54,13 +54,12 @@
 
 pwd
 
-```
-
-결과:
+```결과: Path
 
 ```text
 
-여기에 실제 출력 결과를 기록한다.
+----
+C:\Users\user\codyssey\dev-workstation
 
 ```
 
@@ -76,13 +75,21 @@ ls
 
 ```
 
-결과:
-
+결과: 
 
 ```text
 
-여기에 실제 출력 결과를 기록한다.
+디렉터리: C:\Users\user\codyssey\dev-workstation
 
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-10-30   오후 1:13                app
+d-----      2026-10-30   오후 1:13                docs
+d-----      2026-10-30   오후 1:13                logs
+d-----      2026-10-30   오후 1:13                screenshots
+-a----      2026-10-30   오후 1:18            184 .gitignore
+-a----      2026-10-30   오후 3:41           2877 README.md
 ```
 
 ---
