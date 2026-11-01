@@ -312,3 +312,45 @@ PS C:\Users\user\codyssey\dev-workstation> git status
 PS C:\Users\user\codyssey\dev-workstation> git add README.md app/index.html app/Dockerfile
 PS C:\Users\user\codyssey\dev-workstation> git status
 PS C:\Users\user\codyssey\dev-workstation> git add docs/sample.txt logs/mission-evidence.txt
+PS C:\Users\user\codyssey\dev-workstation> git add .
+PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: add docker web server evidence"
+PS C:\Users\user\codyssey\dev-workstation> git push origin main
+PS C:\Users\user\codyssey\dev-workstation> git status
+PS C:\Users\user\codyssey\dev-workstation> New-Item -ItemType Directory -Force bind-test
+PS C:\Users\user\codyssey\dev-workstation> @"
+<!doctype html>
+<html>
+<body>
+  <h1>Bind Mount Test v1</h1>
+</body>
+</html>
+"@ | Set-Content -Encoding UTF8 .\bind-test\index.html
+PS C:\Users\user\codyssey\dev-workstation> $bindPath = (Resolve-Path .\bind-test).Path
+PS C:\Users\user\codyssey\dev-workstation> docker run -d --name bind-web -p 8081:80 -v "${bindPath}:/usr/share/nginx/html:ro" nginx:alpine
+PS C:\Users\user\codyssey\dev-workstation> curl http://localhost:8081
+PS C:\Users\user\codyssey\dev-workstation> @"
+<!doctype html>
+<html>
+<body>
+  <h1>Bind Mount Test v2</h1>
+  <p>Updated from host folder.</p>
+</body>
+</html>
+"@ | Set-Content -Encoding UTF8 .\bind-test\index.html
+PS C:\Users\user\codyssey\dev-workstation> curl http://localhost:8081
+PS C:\Users\user\codyssey\dev-workstation> docker volume create dev-volume-test
+PS C:\Users\user\codyssey\dev-workstation> docker volume ls
+PS C:\Users\user\codyssey\dev-workstation> docker run --rm -v dev-volume-test:/data nginx:alpine sh -c "echo Docker volume persistence test > /data/message.txt"
+PS C:\Users\user\codyssey\dev-workstation> docker run --rm -v dev-volume-test:/data nginx:alpine cat /data/message.txt
+PS C:\Users\user\codyssey\dev-workstation> docker run --rm -v dev-volume-test:/data nginx:alpine cat /data/message.txt
+PS C:\Users\user\codyssey\dev-workstation> docker volume inspect dev-volume-test
+PS C:\Users\user\codyssey\dev-workstation> notepad READ.md
+PS C:\Users\user\codyssey\dev-workstation> notepad READ.md
+PS C:\Users\user\codyssey\dev-workstation> notepad READ.md
+PS C:\Users\user\codyssey\dev-workstation> notepad READ.md
+PS C:\Users\user\codyssey\dev-workstation> git push origin main
+PS C:\Users\user\codyssey\dev-workstation> git pull
+PS C:\Users\user\codyssey\dev-workstation> git push origin main
+PS C:\Users\user\codyssey\dev-workstation> git status
+PS C:\Users\user\codyssey\dev-workstation> git add .
+PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: add docker verification evidence"
