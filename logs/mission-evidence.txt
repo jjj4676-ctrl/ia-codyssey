@@ -354,3 +354,16 @@ PS C:\Users\user\codyssey\dev-workstation> git push origin main
 PS C:\Users\user\codyssey\dev-workstation> git status
 PS C:\Users\user\codyssey\dev-workstation> git add .
 PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: add docker verification evidence"
+PS C:\Users\user\codyssey\dev-workstation> git pull --rebase origin main
+PS C:\Users\user\codyssey\dev-workstation> notepad README.md
+PS C:\Users\user\codyssey\dev-workstation> git add README.md
+PS C:\Users\user\codyssey\dev-workstation> git rebase --continue
+PS C:\Users\user\codyssey\dev-workstation> git push origin main
+PS C:\Users\user\codyssey\dev-workstation> git status
+PS C:\Users\user\codyssey\dev-workstation> git add .
+PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: update README evidence"
+PS C:\Users\user\codyssey\dev-workstation> git pull --rebase origin main
+PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: update README evidence"
+PS C:\Users\user\codyssey\dev-workstation> git add README.md
+PS C:\Users\user\codyssey\dev-workstation> git git commit -m "docs: update README evidence"
+PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: update README evidence"
