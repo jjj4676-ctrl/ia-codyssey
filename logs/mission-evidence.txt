@@ -1,0 +1,313 @@
+﻿**********************
+Windows PowerShell 기록 시작
+시작 시간: 20261101111301
+사용자 이름: MINDPROFILE\user
+RunAs 사용자: MINDPROFILE\user
+구성 이름: 
+Machine: MINDPROFILE (Microsoft Windows NT 10.0.26200.0)
+호스트 응용 프로그램: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+프로세스 ID: 16204
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 .\logs\mission-evidence.txt입니다.
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== 현재 위치 확인 ==="
+=== 현재 위치 확인 ===
+PS C:\Users\user\codyssey\dev-workstation> pwd
+
+Path
+----
+C:\Users\user\codyssey\dev-workstation
+
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== 디렉터리 목록 확인 ==="
+=== 디렉터리 목록 확인 ===
+PS C:\Users\user\codyssey\dev-workstation> Get ChildItem
+Get : 'Get' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다. 이름이 정확한지 확인하고 경로가 포함된 경우 경로가 올바른지 검증한 다음 다시 시도하십시오.
+위치 줄:1 문자:1
++ Get ChildItem
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (Get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+Get : 'Get' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다. 이름이 정확한지
+ 확인하고 경로가 포함된 경우 경로가 올바른지 검증한 다음 다시 시도하십시오.
+위치 줄:1 문자:1
++ Get ChildItem
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (Get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\user\codyssey\dev-workstation> Get-ChildItem
+
+
+    디렉터리: C:\Users\user\codyssey\dev-workstation
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-10-30   오후 1:13                app
+d-----      2026-10-30   오후 1:13                docs
+d-----      2026-11-01  오전 11:13                logs
+d-----      2026-10-30   오후 1:13                screenshots
+-a----      2026-10-30   오후 1:18            184 .gitignore
+-a----      2026-10-30   오후 3:47           3311 README.md
+
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== 파일 생성/복사/이동/삭제 실습 ==="
+=== 파일 생성/복사/이동/삭제 실습 ===
+PS C:\Users\user\codyssey\dev-workstation> New-Item -Path .\docs\sample.txt -ItemType File -Force
+
+
+    디렉터리: C:\Users\user\codyssey\dev-workstation\docs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-01  오전 11:15              0 sample.txt
+
+
+PS C:\Users\user\codyssey\dev-workstation> Set-Content -Path .\docs\sample.txt -Value "file command test"
+PS C:\Users\user\codyssey\dev-workstation> Copy-Item .\docs\sample.txt .\docs\sample-copy.txt
+PS C:\Users\user\codyssey\dev-workstation> Move-Item .\docs\sample-copy.txt .\logs\sample-moved.txt
+PS C:\Users\user\codyssey\dev-workstation> Remove-Item .\logs\sample-moved.txt
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== 실습 후 docs/logs 목록 ==="
+=== 실습 후 docs/logs 목록 ===
+PS C:\Users\user\codyssey\dev-workstation> Get-ChildItem .\docs
+
+
+    디렉터리: C:\Users\user\codyssey\dev-workstation\docs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-10-30   오후 1:13              0 .gitkeep
+-a----      2026-11-01  오전 11:15             19 sample.txt
+
+
+PS C:\Users\user\codyssey\dev-workstation> Get-ChildItem .\logs
+
+
+    디렉터리: C:\Users\user\codyssey\dev-workstation\logs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-10-30   오후 1:13              0 .gitkeep
+-a----      2026-11-01  오전 11:13              0 mission-evidence.txt
+
+
+PS C:\Users\user\codyssey\dev-workstation> notepad README.md
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== Linux 권한 실습: ls -l, chmod ==="
+=== Linux 권한 실습: ls -l, chmod ===
+PS C:\Users\user\codyssey\dev-workstation> docker run --rm alpine sh -c "mkdir -p /tmp/perm && echo hello > /tmp/perm/file.txt && ls -l /tmp/perm/file.txt && chmod 600 /tmp/perm/file.txt && ls -l /tmp/perm/file.txt && chmod 755 /tmp/perm && ls -ld /tmp/perm"
+
+PS C:\Users\user\codyssey\dev-workstation> docker version
+
+PS C:\Users\user\codyssey\dev-workstation> docer info
+docer : 'docer' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다. 이름이 정확한지 확인하고 경로가 포함된 경우 경로가 올바른지 검증한 다음 다시 시도하
+십시오.
+위치 줄:1 문자:1
++ docer info
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (docer:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docer : 'docer' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다. 이름이 정확
+한지 확인하고 경로가 포함된 경우 경로가 올바른지 검증한 다음 다시 시도하십시오.
+위치 줄:1 문자:1
++ docer info
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (docer:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\user\codyssey\dev-workstation> docker info
+
+PS C:\Users\user\codyssey\dev-workstation> docker run --rm alpine sh -c "mkdir -p /tmp/perm && echo hello > /tmp/perm/file.txt && ls -l /tmp/perm/file.txt && chmod 600 /tmp/perm/file.txt && ls -l /tmp/perm/file.txt && chmod 755 /tmp/perm && ls -ld /tmp/perm"
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== Docker 버전 확인 ==="
+=== Docker 버전 확인 ===
+PS C:\Users\user\codyssey\dev-workstation> docker --version
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== Docker 데몬 상태 확인 ==="
+=== Docker 데몬 상태 확인 ===
+PS C:\Users\user\codyssey\dev-workstation> docker info
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== hello-world 컨테이너 실행 ==="
+=== hello-world 컨테이너 실행 ===
+PS C:\Users\user\codyssey\dev-workstation> docker run --rm hello-world
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== 컨테이너 목록 확인 ==="
+=== 컨테이너 목록 확인 ===
+PS C:\Users\user\codyssey\dev-workstation> docker ps -a
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== 이미지 목록 확인 ==="
+=== 이미지 목록 확인 ===
+PS C:\Users\user\codyssey\dev-workstation> docker images
+
+PS C:\Users\user\codyssey\dev-workstation> @"
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dev Workstaion</title>
+</had>
+<body>
+  <h1>Dec Workstation Docker Test<h1>
+  <p>Dockerfile build and port mapping test.</p>
+</body>
+</html>
+"@ | Set-Content -Encoding UTF8 .\app\index.html
+PS C:\Users\user\codyssey\dev-workstation> @"
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+"@ | Set-Content -Encoding UTF .\app\Dockerfile
+>> 종료 오류(Set-Content): "'Encoding' 매개 변수를 바인딩할 수 없습니다. 값 "UTF"을(를) "Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding" 유형으로 변환할 수 없습니다. 오류: "열거자 이름 UTF8, UTF7, UTF32과(와) 너무 유사하거나 동일하므로 식별자 이름 UTF을(를) 처리할 수 없습니다. 식별자 이름을 더 구체적으로 사용하십시오.""
+Set-Content : 'Encoding' 매개 변수를 바인딩할 수 없습니다. 값 "UTF"을(를) "Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding
+" 유형으로 변환할 수 없습니다. 오류: "열거자 이름 UTF8, UTF7, UTF32과(와) 너무 유사하거나 동일하므로 식별자 이름 UTF을(를) 처리할 수 없습니다. 식별자 이름을 더 구체적으로 사용하십시오."
+위치 줄:5 문자:28
++ "@ | Set-Content -Encoding UTF .\app\Dockerfile
++                            ~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Content], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.SetContentCommand
+Set-Content : 'Encoding' 매개 변수를 바인딩할 수 없습니다. 값 "UTF"을(를) "Microsoft.PowerShell.Commands.FileSystemCmdl
+etProviderEncoding" 유형으로 변환할 수 없습니다. 오류: "열거자 이름 UTF8, UTF7, UTF32과(와) 너무 유사하거나 동일하므로
+식별자 이름 UTF을(를) 처리할 수 없습니다. 식별자 이름을 더 구체적으로 사용하십시오."
+위치 줄:5 문자:28
++ "@ | Set-Content -Encoding UTF .\app\Dockerfile
++                            ~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Content], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.SetContentCommand
+
+PS C:\Users\user\codyssey\dev-workstation> @"
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+"@ | Set-Content -Encoding UTF8 .\app\Dockerfile
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== Dockerfile 내용 ==="
+=== Dockerfile 내용 ===
+PS C:\Users\user\codyssey\dev-workstation> Get-Content .\app\Dockerfile
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== Docker 이미지 빌드 ==="
+=== Docker 이미지 빌드 ===
+PS C:\Users\user\codyssey\dev-workstation> docker build -t dev-workstation-web:1.0 .\app
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== hello-world 컨테이너 실행 ==="
+=== hello-world 컨테이너 실행 ===
+PS C:\Users\user\codyssey\dev-workstation> docker run --rm hello-world
+
+PS C:\Users\user\codyssey\dev-workstation> docker rm -f dev-web 2>$null
+
+PS C:\Users\user\codyssey\dev-workstation> Write-Output "=== 포트 매핑 컨테이너 실행 ==="
+=== 포트 매핑 컨테이너 실행 ===
+PS C:\Users\user\codyssey\dev-workstation> docker run -d --name dev-web -p 8080:80 dev-work
+
+PS C:\Users\user\codyssey\dev-workstation> docker images
+
+PS C:\Users\user\codyssey\dev-workstation> Get-ChildItem
+
+
+    디렉터리: C:\Users\user\codyssey\dev-workstation
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-11-01  오전 11:53                app
+d-----      2026-11-01  오전 11:16                docs
+d-----      2026-11-01  오전 11:16                logs
+d-----      2026-10-30   오후 1:13                screenshots
+-a----      2026-10-30   오후 1:18            184 .gitignore
+-a----      2026-11-01  오전 11:59          12102 README.md
+
+
+PS C:\Users\user\codyssey\dev-workstation> Get-ChildItem .\app
+
+
+    디렉터리: C:\Users\user\codyssey\dev-workstation\app
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-10-30   오후 1:13              0 .gitkeep
+-a----      2026-11-01  오전 11:53             81 Dockerfile
+-a----      2026-11-01  오전 11:49            208 index.html
+
+
+PS C:\Users\user\codyssey\dev-workstation> docker build -t dev-work:1.0 .\app
+
+PS C:\Users\user\codyssey\dev-workstation> docker images
+
+PS C:\Users\user\codyssey\dev-workstation> docker rm -f dev-web 2>$null
+
+PS C:\Users\user\codyssey\dev-workstation> docker run -d --name dev-web -p 8080:80 dev-work:1.0
+
+PS C:\Users\user\codyssey\dev-workstation> docker ps
+
+PS C:\Users\user\codyssey\dev-workstation> curl http://localhost:8080
+보안 경고: 스크립트 실행 위험
+Invoke-WebRequest는 웹 페이지의 내용을 구문 분석합니다. 페이지를 구문 분석할 때 웹 페이지 내 스크립트 코드가 실행될 수 있습니다.
+      권장 조치:
+      -UseBasicParsing 스위치를 사용하여 스크립트 코드 실행을 방지합니다.
+
+      계속하시겠어요?
+예(&Y)  모두 예(&A)  아니요(&N)  모두 아니요(&L)  일시 중단(&S)
+Y
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : ï»¿<!doctype html>
+                    <html>
+                    <head>
+                      <meta charset="utf-8">
+                      <title>Dev Workstaion</title>
+                    </had>
+                    <body>
+                      <h1>Dec Workstation Docker Test<h1>
+                      <p>Dockerfile build and port mapping test.</p>
+                    </body>
+                    <...
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Accept-Ranges: bytes
+                    Content-Length: 208
+                    Content-Type: text/html
+                    Date: Sun, 01 Nov 2026 03:05:10 GMT
+                    ETag: "6ae6a8ce-d0"
+                    Last-Modified: Sun, 01 Nov 2026 0...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Accept-Ranges, bytes], [Content-Length, 208], [Content-Type, text/html]
+                    ...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 208
+
+
+
+PS C:\Users\user\codyssey\dev-workstation> curl http://localhost:8080
+보안 경고: 스크립트 실행 위험
+Invoke-WebRequest는 웹 페이지의 내용을 구문 분석합니다. 페이지를 구문 분석할 때 웹 페이지 내 스크립트 코드가 실행될 수 있습니다.
+      권장 조치:
+      -UseBasicParsing 스위치를 사용하여 스크립트 코드 실행을 방지합니다.
+
+      계속하시겠어요?
+예(&Y)  모두 예(&A)  아니요(&N)  모두 아니요(&L)  일시 중단(&S)
+S
+PS C:\Users\user\codyssey\dev-workstation> git README.md
+PS C:\Users\user\codyssey\dev-workstation> Get-ChildItem .\app
+PS C:\Users\user\codyssey\dev-workstation> Get-Content .\app\Dockerfile
+PS C:\Users\user\codyssey\dev-workstation> Get-Content .\app\index.html
+PS C:\Users\user\codyssey\dev-workstation> docker build -t dev-work:1.0 .\app
+PS C:\Users\user\codyssey\dev-workstation> docker images
+PS C:\Users\user\codyssey\dev-workstation> git status
+PS C:\Users\user\codyssey\dev-workstation> git add README.md app/index.html app/Dockerfile
+PS C:\Users\user\codyssey\dev-workstation> git status
