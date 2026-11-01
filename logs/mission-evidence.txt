@@ -370,3 +370,11 @@ PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: update README ev
 PS C:\Users\user\codyssey\dev-workstation> git commit -a
 PS C:\Users\user\codyssey\dev-workstation> git status
 PS C:\Users\user\codyssey\dev-workstation> git pull --rebase origin main
+PS C:\Users\user\codyssey\dev-workstation> Copy-Item .\logs\mission-evidence.txt $env:TEMP\mission-evidence-backup.txt -Force
+PS C:\Users\user\codyssey\dev-workstation> git update-index --refresh
+PS C:\Users\user\codyssey\dev-workstation> git status
+PS C:\Users\user\codyssey\dev-workstation> git add logs/mission-evidence.txt
+PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: update mission evidence log"
+PS C:\Users\user\codyssey\dev-workstation> git restore --worktree --staged logs/mission-evidence.txt
+PS C:\Users\user\codyssey\dev-workstation> git status
+PS C:\Users\user\codyssey\dev-workstation> git pull --rebase origin main
