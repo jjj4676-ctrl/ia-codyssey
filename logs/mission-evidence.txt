@@ -311,3 +311,4 @@ PS C:\Users\user\codyssey\dev-workstation> docker images
 PS C:\Users\user\codyssey\dev-workstation> git status
 PS C:\Users\user\codyssey\dev-workstation> git add README.md app/index.html app/Dockerfile
 PS C:\Users\user\codyssey\dev-workstation> git status
+PS C:\Users\user\codyssey\dev-workstation> git add docs/sample.txt logs/mission-evidence.txt

@@ -422,16 +422,68 @@ CONTAINER ID   IMAGE          COMMAND                   CREATED          STATUS 
 
 ## 10. 바인드 마운트 검증
 
+호스트의 `bind-test` 폴더를 nginx 컨테이너의 `/usr/share/nginx/html` 경로에 연결
 
-아직 진행 전입니다.
+처음 접속 결과 :
+PS C:\Users\user\codyssey\dev-workstation>> $bindPath = (Resolve-Path .\bind-test).Path
+PS C:\Users\user\codyssey\dev-workstation>> docker run -d --name bind-web -p 8081:80 -v "${bindPath}:/usr/share/nginx/html:ro" nginx:alpine
+Unable to find image 'nginx:alpine' locally
+alpine: Pulling from library/nginx
+Digest: sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
+Status: Downloaded newer image for nginx:alpine
+b81b681ce4c3cef3faa86dcd2f80e5dabf9e4ccdb1c9abea39196a59b96c1344
+PS C:\Users\user\codyssey\dev-workstation>> curl http://localhost:8081
 
+tatusCode        : 200
+StatusDescription : OK
+Content           : ï»¿<!doctype html>
+                    <html>
+                    <body>
+                      <h1>Bind Mount Test v1</h1>
+                    </body>
+                    </html>
 ---
+
+호스트의 `bind-test/index.html` 파일을 수정한 뒤 다시 접속한 결과:
+
+PS C:\Users\user\codyssey\dev-workstation>> @"
+>> <!doctype html>
+>> <html>
+>> <body>
+>>   <h1>Bind Mount Test v2</h1>
+>>   <p>Updated from host folder.</p>
+>> </body>
+>> </html>
+>> "@ | Set-Content -Encoding UTF8 .\bind-test\index.html
+PS C:\Users\user\codyssey\dev-workstation>> curl http://localhost:8081
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : ï»¿<!doctype html>
+                    <html>
+                    <body>
+                      <h1>Bind Mount Test v2</h1>
+                      <p>Updated from host folder.</p>
+                    </body>
+                    </html>
+-------
 
 ## 11. Docker 볼륨 영속성 검증
 
+Docker 볼륨 생성 및 저장
+PS C:\Users\user\codyssey\dev-workstation>> docker volume create dev-volume-test
+dev-volume-test
+PS C:\Users\user\codyssey\dev-workstation>> docker volume ls
+DRIVER    VOLUME NAME
+local     dev-volume-test
+PS C:\Users\user\codyssey\dev-workstation>> docker run --rm -v dev-volume-test:/data nginx:alpine sh -c "echo Docker volume persistence test > /data/message.txt"
 
-아직 진행 전입니다.
+새 컨테이너에서 같은 볼륨을 연결해서 데이터 확인 :
+PS C:\Users\user\codyssey\dev-workstation>> docker run --rm -v dev-volume-test:/data nginx:alpine cat /data/message.txt
+Docker volume persistence test
 
+`--rm` 옵션으로 컨테이너는 삭제되었지만, Docker 볼륨에 저장된 `message.txt` 데이터는 유지되었다.  
+이를 통해 Docker 볼륨은 컨테이너 생명주기와 독립적으로 데이터를 보관한다는 것을 확인했다.
 ---
 
 
