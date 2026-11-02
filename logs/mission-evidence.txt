@@ -378,3 +378,9 @@ PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: update mission e
 PS C:\Users\user\codyssey\dev-workstation> git restore --worktree --staged logs/mission-evidence.txt
 PS C:\Users\user\codyssey\dev-workstation> git status
 PS C:\Users\user\codyssey\dev-workstation> git pull --rebase origin main
+PS C:\Users\user\codyssey\dev-workstation> git diff -- logs/mission-evidence.txt
+PS C:\Users\user\codyssey\dev-workstation> git add logs/mission-evidence.txt
+PS C:\Users\user\codyssey\dev-workstation> git commit -m "docs: update mission evidence log"
+PS C:\Users\user\codyssey\dev-workstation> git status
+PS C:\Users\user\codyssey\dev-workstation> git pull --rebase origin main
+PS C:\Users\user\codyssey\dev-workstation> git push origin main
