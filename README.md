@@ -379,9 +379,9 @@ PS C:\Users\user\codyssey\dev-workstation> docker build -t dev-workstation-web:1
 ```
 -----------
 
-Docker 이미지는 컨테이너를 만들기 위한 실행 템플릿이다.  
-컨테이너는 이미지를 기반으로 실제 실행 중인 프로세스이다.  
-예를 들어 `dev-workstation-web:1.0`은 이미지이고, `dev-web`은 그 이미지로 실행한 컨테이너이다.
+- Docker 이미지는 컨테이너를 만들기 위한 실행 템플릿이다.  
+- 컨테이너는 이미지를 기반으로 실제 실행 중인 프로세스이다.  
+- 예를 들어 `dev-workstation-web:1.0`은 이미지이고, `dev-web`은 그 이미지로 실행한 컨테이너이다.
 --------
 
 ## 8. Docker 기본 운영 명령
