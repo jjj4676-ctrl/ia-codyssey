@@ -657,11 +657,12 @@ The system cannot find the file specified.
 
 - 확인: Docker 서버가 정상적으로 동작하는지 확인하기 위해 다음 명령어를 사용
 
-```docker version
-docker info```
+```docker version```
+```docker info```
 
 - 해결: Docker Desktop을 실행하고 엔진이 준비될 때까지 기다린 뒤 다시 명령어를 실행
-```
+
+```powershell
 PS C:\Users\user\codyssey\dev-workstation> docker run --rm ubuntu echo "ubuntu container test"
 Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
@@ -681,6 +682,7 @@ ubuntu container test
 ```text
 보안 경고: 스크립트 실행 위험
 Invoke-WebRequest는 웹 페이지의 내용을 구문 분석합니다.
+```
 
 - 원인 가설: Windows PowerShell에서 `curl`은 실제 curl 프로그램이 아니라 `Invoke-WebRequest`의 별칭으로 동작한다. 이 때문에 HTML 응답을 파싱하는 과정에서 보안 경고가 출력된 것으로 판단
 
