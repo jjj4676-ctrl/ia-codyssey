@@ -482,7 +482,7 @@ CONTAINER ID   IMAGE                     COMMAND                   CREATED      
 
 ## localhost 접속 확인
 
-![localhost 8080 접속 화면](./screenshots/dockertest.png)
+![localhost 8080 접속 화면](./screenshots/docker test.png)
 
 ## 10-1. 포트 매핑과 네트워크 네임스페이스 설명
 
