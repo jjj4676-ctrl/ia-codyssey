@@ -480,6 +480,10 @@ CONTAINER ID   IMAGE                     COMMAND                   CREATED      
 338c8b529713   dev-workstation-web:1.0   "/docker-entrypoint.…"   13 seconds ago   Up 12 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   dev-web
 ```
 
+## localhost 접속 확인
+
+![localhost 8080 접속 화면](./screenshots/dockertest.png)
+
 ## 10-1. 포트 매핑과 네트워크 네임스페이스 설명
 
 Docker 컨테이너는 기본적으로 호스트와 분리된 네트워크 환경에서 실행된다.  
